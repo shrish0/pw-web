@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamically Add List Items</title>
+</head>
+<body>
+    <h2>What you'll learn</h2>
+    <ol id="learnList"></ol>
+    <button id="addItemButton">Add Item</button>
+    <p id="message"></p>
+
+    <script>
+        const items = [
+            "HTML Basics",
+            "CSS Fundamentals",
+            "JavaScript Essentials",
+            "React Introduction",
+            "Node.js Overview"
+        ];
+        let currentIndex = 0;
+
+        const learnList = document.getElementById('learnList');
+        const addItemButton = document.getElementById('addItemButton');
+        const message = document.getElementById('message');
+
+        addItemButton.addEventListener('click', () => {
+            if (currentIndex < items.length) {
+                const li = document.createElement('li');
+                li.textContent = items[currentIndex];
+                learnList.appendChild(li);
+                currentIndex++;
+            } else {
+                message.textContent = "All items have been added.";
+            }
+        });
+    </script>
+</body>
+</html>

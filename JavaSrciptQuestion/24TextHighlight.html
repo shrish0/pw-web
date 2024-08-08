@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Highlighting</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p id="textParagraph">
+        This is an example paragraph with some longwords and other content to demonstrate the highlighting functionality.
+    </p>
+
+    <script>
+        const paragraph = document.getElementById('textParagraph');
+        const words = paragraph.textContent.split(' ');
+
+        paragraph.innerHTML = words.map(word => {
+            return word.length > 8 ? `<span class="highlight">${word}</span>` : word;
+        }).join(' ');
+    </script>
+</body>
+</html>
